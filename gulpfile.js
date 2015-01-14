@@ -37,4 +37,4 @@ gulp.task('premailer', function () {
         .pipe(gulp.dest('build/'));
 });
 
-gulp.task('default', ['jade', 'stylus', 'premailer']);
+gulp.task('default', ['jade', 'stylus','imagemin', 'premailer']);
