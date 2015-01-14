@@ -1,0 +1,25 @@
+{
+  "name": "fast-email-boilerplate",
+  "version": "1.0.0",
+  "description": "Kickstart the development of email templates",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "email",
+    "gulp",
+    "jade",
+    "stylus"
+  ],
+  "author": "Willian Justen de Vasconcellos",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer-stylus": "^0.4.0",
+    "gulp": "^3.8.10",
+    "gulp-jade": "^0.10.0",
+    "gulp-plumber": "^0.6.6",
+    "gulp-premailer": "^0.3.0",
+    "gulp-stylus": "^2.0.0"
+  }
+}
