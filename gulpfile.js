@@ -2,6 +2,7 @@ var gulp      = require('gulp'),
     plumber   = require('gulp-plumber'),
     jade      = require('gulp-jade'),
     stylus    = require('gulp-stylus'),
+    imagemin  = require('gulp-imagemin'),
     prefixer  = require('autoprefixer-stylus'),
     premailer = require('gulp-premailer');
 
@@ -20,7 +21,14 @@ gulp.task('stylus', function(){
             use:[prefixer()],
             compress: true
         }))
-        .pipe(gulp.dest('step/'))
+        .pipe(gulp.dest('src/step/'))
+});
+
+gulp.task('imagemin', function() {
+    return gulp.src('src/img/**/*')
+        .pipe(plumber())
+        .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
+        .pipe(gulp.dest('build/img'));
 });
 
 gulp.task('premailer', function () {
@@ -29,4 +37,4 @@ gulp.task('premailer', function () {
         .pipe(gulp.dest('build/'));
 });
 
-gulp.task('default', ['jade', 'premailer']);
+gulp.task('default', ['jade', 'stylus', 'premailer']);
