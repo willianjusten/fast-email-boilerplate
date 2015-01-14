@@ -37,4 +37,10 @@ gulp.task('premailer', function () {
         .pipe(gulp.dest('build/'));
 });
 
-gulp.task('default', ['jade', 'stylus','imagemin', 'premailer']);
+gulp.task('watch', function(){
+    gulp.watch('src/templates/**/*.jade', ['jade', 'premailer']);
+    gulp.watch('src/styl/**/*.styl', ['stylus','premailer']);
+    gulp.watch('src/img/**/*.{jpg,png,gif}', ['imagemin']);
+});
+
+gulp.task('default', ['jade', 'stylus','imagemin', 'premailer', 'watch']);
